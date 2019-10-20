@@ -22,7 +22,7 @@ export default function Search(props) {
         <form>
           <input
             className="form-input"
-            placeholder="Digite nome da sua cidade"
+            placeholder="Busque por cidade, nome ou estado"
             value={term}
             onChange={event => setTerm(event.target.value)}
           />
