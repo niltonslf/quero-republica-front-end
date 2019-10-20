@@ -3,5 +3,13 @@
   margin: 0 auto;
 }
 
-.container-body {
+.alert {
+  width: 100%;
+  margin: 10px;
+  background: rgb(223, 168, 168);
+  color: black;
+  border: 1px solid var(--red);
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-weight: bold;
 }

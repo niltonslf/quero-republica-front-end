@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './styles.css'
 
-export default function Search() {
+export default function Search(props) {
+  const [term, setTerm] = useState('')
+
+  useEffect(() => {})
+
+  function search(event) {
+    event.preventDefault()
+    props.handleSearch(term)
+  }
+
   return (
     <div className="search">
       <section className="search__body container">
@@ -14,8 +23,12 @@ export default function Search() {
           <input
             className="form-input"
             placeholder="Digite nome da sua cidade"
+            value={term}
+            onChange={event => setTerm(event.target.value)}
           />
-          <button class="btn">Pesquisar</button>
+          <button className="btn" onClick={event => search(event)}>
+            Pesquisar
+          </button>
         </form>
       </section>
     </div>

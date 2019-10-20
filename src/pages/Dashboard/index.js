@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+
+import DashboardService from '../../services/DashboardService'
 
 import Card from '../../components/Card'
 import Header from '../../components/Header'
@@ -7,17 +9,40 @@ import Search from '../../components/Search'
 import './styles.css'
 
 export default function Dashboard() {
-  const [items, setItems] = useState([1, 2, 3, 4, 5, 6])
+  const [republics, setRepublics] = useState([])
+
+  useEffect(() => {
+    fetchRepublics()
+  }, [])
+
+  async function fetchRepublics() {
+    const res = await DashboardService.fetchAll()
+    setRepublics(res.body)
+  }
+
+  async function handleSearch(term) {
+    console.log('term:', term)
+    if (!term.length) fetchRepublics()
+    const res = await DashboardService.filter(term)
+
+    setRepublics(res)
+  }
 
   return (
     <div className="container-wrap">
       <Header />
       <div className="container-body">
-        <Search />
+        <Search handleSearch={handleSearch} />
 
         <div className="cards container">
-          {items.map(item => (
-            <Card />
+          {republics.length == 0 ? (
+            <div className="alert">
+              Opps!! nenhuma república foi encontrada :/
+            </div>
+          ) : null}
+
+          {republics.map((republic, index) => (
+            <Card key={index} data={republic} />
           ))}
         </div>
       </div>
