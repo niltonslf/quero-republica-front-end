@@ -1,4 +1,4 @@
-# Quero república
+# Quero república Front-end
 
 Encontre as melhores repúblicas perto de você!
 
