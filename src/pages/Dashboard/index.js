@@ -35,7 +35,7 @@ export default function Dashboard() {
         <Search handleSearch={handleSearch} />
 
         <div className="cards container">
-          {republics.length == 0 ? (
+          {republics.length === 0 ? (
             <div className="alert">
               Opps!! nenhuma república foi encontrada :/
             </div>
