@@ -1,6 +1,7 @@
 /**
-* RESET CSS
+* Resetar css e adicionar estilos globais
 **/
+
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
 :root {
@@ -30,4 +31,18 @@ body {
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
   height: 100%;
+}
+
+.form-input {
+  border: 1px solid rgb(187, 187, 187);
+  padding: 10px 15px;
+  border-radius: 3px 0 0 3px;
+  width: 100%;
+}
+.btn {
+  background: var(--red);
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 0 5px 5px 0;
 }
