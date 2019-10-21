@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://3333-dot-3702302-dot-devshell.appspot.com'
+  baseURL: 'http://ec2-18-228-154-218.sa-east-1.compute.amazonaws.com:3333'
 })
 
 export default api
