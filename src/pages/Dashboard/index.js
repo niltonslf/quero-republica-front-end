@@ -35,15 +35,15 @@ export default function Dashboard() {
         <Search handleSearch={handleSearch} />
 
         <div className="cards container">
-          {republics.length === 0 ? (
+          {!republics ? (
             <div className="alert">
               Opps!! nenhuma república foi encontrada :/
             </div>
-          ) : null}
-
-          {republics.map((republic, index) => (
-            <Card key={index} data={republic} />
-          ))}
+          ) : (
+            republics.map((republic, index) => (
+              <Card key={index} data={republic} />
+            ))
+          )}
         </div>
       </div>
     </div>
