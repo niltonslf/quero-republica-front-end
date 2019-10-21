@@ -16,10 +16,12 @@ class DashboardService {
   }
 
   async filter(term = '') {
-    this.baseUrl = `${this.baseUrl}/filter?term=${term}`
-    const response = await this.fetchAll()
-
-    return response
+    try {
+      const response = await api.get(`${this.baseUrl}/filter?term=${term}`)
+      return response.data
+    } catch (error) {
+      return []
+    }
   }
 }
 

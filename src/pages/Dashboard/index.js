@@ -17,15 +17,19 @@ export default function Dashboard() {
 
   async function fetchRepublics() {
     const res = await DashboardService.fetchAll()
-    setRepublics(res.body)
+    console.log({ res })
+    setRepublics(res.body ? res.body : [])
   }
 
   async function handleSearch(term) {
     console.log('term:', term)
-    if (!term.length) fetchRepublics()
-    const res = await DashboardService.filter(term)
-
-    setRepublics(res)
+    if (!term.length) {
+      console.log('get')
+      fetchRepublics()
+    } else {
+      const res = await DashboardService.filter(term)
+      setRepublics(res ? res : [])
+    }
   }
 
   return (
@@ -39,11 +43,11 @@ export default function Dashboard() {
             <div className="alert">
               Opps!! nenhuma república foi encontrada :/
             </div>
-          ) : null}
-
-          {republics.map((republic, index) => (
-            <Card key={index} data={republic} />
-          ))}
+          ) : (
+            republics.map((republic, index) => (
+              <Card key={index} data={republic} />
+            ))
+          )}
         </div>
       </div>
     </div>
