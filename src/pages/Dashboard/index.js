@@ -17,15 +17,19 @@ export default function Dashboard() {
 
   async function fetchRepublics() {
     const res = await DashboardService.fetchAll()
-    setRepublics(res.body)
+    console.log({ res })
+    setRepublics(res.body ? res.body : [])
   }
 
   async function handleSearch(term) {
     console.log('term:', term)
-    if (!term.length) fetchRepublics()
-    const res = await DashboardService.filter(term)
-
-    setRepublics(res)
+    if (!term.length) {
+      console.log('get')
+      fetchRepublics()
+    } else {
+      const res = await DashboardService.filter(term)
+      setRepublics(res ? res : [])
+    }
   }
 
   return (
