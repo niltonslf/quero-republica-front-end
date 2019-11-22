@@ -28,7 +28,7 @@ export default function Dashboard() {
       fetchRepublics()
     } else {
       const res = await DashboardService.filter(term)
-      setRepublics(res ? res : [])
+      setRepublics(res.body ? res.body : [])
     }
   }
 

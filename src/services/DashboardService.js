@@ -1,28 +1,28 @@
-import api from './ApiService'
+import api from "./ApiService";
 
 class DashboardService {
   constructor() {
-    this.baseUrl = '/dashboard'
-    this.limit = 10
+    this.baseUrl = "/republic";
+    this.limit = 10;
   }
 
   async fetchAll() {
     try {
-      const response = await api.get(`${this.baseUrl}`)
-      return response.data
+      const response = await api.get(`${this.baseUrl}`);
+      return response.data;
     } catch (err) {
-      return []
+      return [];
     }
   }
 
-  async filter(term = '') {
+  async filter(term = "") {
     try {
-      const response = await api.get(`${this.baseUrl}/filter?term=${term}`)
-      return response.data
+      const response = await api.get(`${this.baseUrl}/filter?term=${term}`);
+      return response.data;
     } catch (error) {
-      return []
+      return [];
     }
   }
 }
 
-export default new DashboardService()
+export default new DashboardService();
