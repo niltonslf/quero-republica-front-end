@@ -15,7 +15,11 @@ Site desenvolvido como desafio. Nele utilizo ReactJs no front, Nodejs para forne
 
 ## Scripts
 
+---
+
 Rodar versão de desenvolvimento:
+
+### `yarn install`
 
 ### `yarn start`
 
